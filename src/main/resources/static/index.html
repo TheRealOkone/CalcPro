@@ -8,12 +8,44 @@
     <title>Document</title>
 </head>
 <style>
-
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: white; /* Green */
+  color: white;
+}
 </style>
 <body>
 <h1 style="text-align: center; margin-top: 50px">This shit is made by ...</h1>
-
-<h1>hello world</h1>
-
+<div class="button" onclick="changeText('1')">1</div>
+<div class="button" onclick="changeText('2')">2</div>
+<div class="button" onclick="changeText('3')">3</div>
+<br>
+<div class="button" onclick="changeText('4')">4</div>
+<div class="button" onclick="changeText('5')">5</div>
+<div class="button" onclick="changeText('6')">6</div>
+<br>
+<div class="button" onclick="changeText('7')">7</div>
+<div class="button" onclick="changeText('8')">8</div>
+<div class="button" onclick="changeText('9')">9</div>
+<br>
+<div class="button" onclick="changeText('0')">  0  </div>
+Total <input type="text" id="count" value="Введите ваш пример"/>
+<script>
+function changeText(value) {
+	if (document.getElementById('count').value == "Введите ваш пример")  document.getElementById('count').value = value;
+    else document.getElementById('count').value += value;   
+}
+</script>
 </body>
 </html>
