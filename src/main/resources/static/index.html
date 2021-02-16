@@ -27,6 +27,7 @@
 </style>
 <body>
 <h1 style="text-align: center; margin-top: 50px">This shit is made by ...</h1>
+<div id = "message"> not changed</div>
 <div class="button" onclick="changeText('1')">1</div>
 <div class="button" onclick="changeText('2')">2</div>
 <div class="button" onclick="changeText('3')">3</div>
@@ -40,11 +41,29 @@
 <div class="button" onclick="changeText('9')">9</div>
 <br>
 <div class="button" onclick="changeText('0')">  0  </div>
+<div class="button" onclick="getRequest()">  Send!  </div>
 Total <input type="text" id="count" value="Введите ваш пример"/>
 <script>
 function changeText(value) {
 	if (document.getElementById('count').value == "Введите ваш пример")  document.getElementById('count').value = value;
     else document.getElementById('count').value += value;   
+}
+</script>
+<script>
+function getRequest() {
+	let url = new URL('http://localhost:8080/home');
+	url.searchParams.set('req', 'bruhstring');
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, [true]);
+	xhr.send();
+	xhr.onload = function() {
+ 	if (xhr.status != 200) {
+  		alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
+  	} else {
+		document.getElementById('message').innerText = xhr.responseText;
+  	}
+	};
+	
 }
 </script>
 </body>
