@@ -16,8 +16,8 @@ public class Service {
     @CrossOrigin
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     @ResponseBody
-    public String go(@RequestBody String req) {
-
+    public String go(@RequestParam String req) {
+        System.out.println(req);
         return "bruh";
     }
 
