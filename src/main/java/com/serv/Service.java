@@ -18,6 +18,7 @@ public class Service {
     @ResponseBody
     public String go(@RequestParam String req) {
         System.out.println(req);
+        System.out.println(calc.calc(req));
         return Double.toString(calc.calc(req));
     }
 
