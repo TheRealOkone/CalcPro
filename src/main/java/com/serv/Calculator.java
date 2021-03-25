@@ -17,7 +17,39 @@ public class Calculator {
             strList.remove(strList.size()-1);
         }
 
-        if(strList.contains("(")){
+        if(strList.contains("(") || strList.contains("sqrt(")){
+
+            for(int i = 0; i < strList.size(); i++){
+                if(strList.get(i).equals("sqrt(")){
+                    int b;
+                    boolean succ = true;
+                    int testo = 0;
+                    ArrayList<String> str = new ArrayList<>();
+                    for(int j = i + 1; succ; j++){
+                        str.add(strList.get(j));
+                        b = j+1;
+                        if(strList.get(j + 1).equals("(")){
+                            testo++;
+                        }
+                        if(strList.get(j + 1).equals(")")){
+                            if(testo == 0) {
+                                succ = false;
+                            }
+                            else{
+                                testo--;
+                            }
+                        }
+
+                    }
+                    double c = sqrt(evaluate(str));
+                    strList.set(i, Double.toString(c));
+                    while(!strList.get(i + 1).equals(")")){
+                        strList.remove(i + 1 );
+                    }
+                    strList.remove(i + 1 );
+                }
+            }
+
             for(int i = 0; i < strList.size(); i++){
                 if(strList.get(i).equals("(")){
                     int b;
@@ -99,6 +131,10 @@ public class Calculator {
                 return goCalc(subList, "/", subList2);
 
             }
+        }
+
+        if(strList.size() == 1){
+            return Double.valueOf(strList.get(0));
         }
         return 0.0;
     }
