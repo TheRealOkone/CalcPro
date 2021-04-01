@@ -4,6 +4,9 @@ import java.util.*;
 
 import static java.lang.Math.*;
 
+/**
+ * Класс для вычислений
+ */
 public class Calculator {
 
     public static Double evaluate(ArrayList <String> strList) {
@@ -139,6 +142,13 @@ public class Calculator {
         return 0.0;
     }
 
+    /**
+     * Вычисление простейшей операции
+     * @param subList
+     * @param s
+     * @param subList2
+     * @return
+     */
     private static Double goCalc(List<String> subList, String s, List<String> subList2) {
         switch(s)
         {
@@ -158,7 +168,11 @@ public class Calculator {
     }
 
 
-
+    /**
+     * Запуск вычислений
+     * @param req
+     * @return Результат
+     */
     public double calc(String req){
         return evaluate(new ArrayList<>(Arrays.asList(req.trim().split(" "))));
     }
