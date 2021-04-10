@@ -20,7 +20,7 @@ public class Calculator {
             strList.remove(strList.size()-1);
         }
 
-        if(strList.contains("(") || strList.contains("sqrt(")){
+        if(strList.contains("(") || strList.contains("sqrt(") || strList.contains("pow(") || strList.contains("abs(")){
 
             for(int i = 0; i < strList.size(); i++){
                 if(strList.get(i).equals("sqrt(")){
@@ -52,6 +52,38 @@ public class Calculator {
                     strList.remove(i + 1 );
                 }
             }
+
+            for(int i = 0; i < strList.size(); i++){
+                if(strList.get(i).equals("abs(")){
+                    int b;
+                    boolean succ = true;
+                    int testo = 0;
+                    ArrayList<String> str = new ArrayList<>();
+                    for(int j = i + 1; succ; j++){
+                        str.add(strList.get(j));
+                        b = j+1;
+                        if(strList.get(j + 1).equals("(")){
+                            testo++;
+                        }
+                        if(strList.get(j + 1).equals(")")){
+                            if(testo == 0) {
+                                succ = false;
+                            }
+                            else{
+                                testo--;
+                            }
+                        }
+
+                    }
+                    double c = abs(evaluate(str));
+                    strList.set(i, Double.toString(c));
+                    while(!strList.get(i + 1).equals(")")){
+                        strList.remove(i + 1 );
+                    }
+                    strList.remove(i + 1 );
+                }
+            }
+
 
             for(int i = 0; i < strList.size(); i++){
                 if(strList.get(i).equals("(")){
