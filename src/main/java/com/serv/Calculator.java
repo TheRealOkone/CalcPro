@@ -198,7 +198,44 @@ public class Calculator {
         }
         return 0.0;
     }
+    public ArrayList<String> fixstr(String str){
 
+        String[] mas = new String[]{"(", ")", "+", "*", "/", "^"};
+        for(int i = 0; i < mas.length;i++) {
+            if (str.contains(mas[i])) {
+                str = mod(str, mas[i].charAt(0));
+            }
+        }
+        if (str.contains("abs (")) {
+            str = str.replace("abs (","abs(");
+        }
+        if (str.contains("sqrt (")) {
+            str = str.replace("sqrt (","sqrt(");
+        }
+        ArrayList<String> a = new ArrayList<>(Arrays.asList(str.trim().split(" ")));
+        return a;
+    }
+    public String mod(String str, char c){
+
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(i) == c){
+                str = str.replace(Character.toString(c)," " + Character.toString(c) + " ");
+                i++;
+            }
+        }
+        return str;
+    }
+    public ArrayList<String> fixlist(ArrayList<String> a){
+        for(int i = 0; i < a.size(); i++){
+            String str = a.get(i);
+            ArrayList<String> splitted = fixstr(str);
+            a.remove(i);
+            a.addAll(i,splitted);
+            a.remove("");
+        }
+
+        return a;
+    }
 
     /**
      * Запуск вычислений
@@ -206,7 +243,10 @@ public class Calculator {
      * @return Результат
      */
     public double calc(String req){
-        return evaluate(new ArrayList<>(Arrays.asList(req.trim().split(" "))));
+        ArrayList<String> alist = new ArrayList<>(Arrays.asList(req.trim().split(" ")));
+        alist = fixlist(alist);
+        double res = evaluate(alist);
+        return res;
     }
 
 }
