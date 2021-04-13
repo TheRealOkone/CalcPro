@@ -180,9 +180,18 @@ public class Calculator {
             }
         }
 
+
+
         if(strList.size() == 1){
             return Double.valueOf(strList.get(0));
         }
+        return 0.0;
+    }
+
+    public Double dx(String str){
+        ArrayList<String> alist = new ArrayList<>(Arrays.asList(str.trim().split(" ")));
+        alist = fixlist(alist);
+        System.out.println(alist);
         return 0.0;
     }
 
@@ -215,7 +224,7 @@ public class Calculator {
     }
     public ArrayList<String> fixstr(String str){
 
-        String[] mas = new String[]{"(", ")", "+", "*", "/", "^"};
+        String[] mas = new String[]{"(", ")", "+", "*", "/", "^", "x"};
         for(int i = 0; i < mas.length;i++) {
             if (str.contains(mas[i])) {
                 str = mod(str, mas[i].charAt(0));

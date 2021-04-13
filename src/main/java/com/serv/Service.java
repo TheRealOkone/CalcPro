@@ -33,5 +33,14 @@ public class Service {
         System.out.println(calc.calc(req));
         return Double.toString(calc.calc(req));
     }
+    @CrossOrigin
+    @RequestMapping(value = "/home", method = RequestMethod.POST)
+    @ResponseBody
+    public String go(@RequestParam String req, @RequestParam int fmod) {
+        System.out.println(fmod);
+        System.out.println(req);
+        System.out.println(calc.calc(req));
+        return Double.toString(calc.calc(req));
+    }
 
 }
