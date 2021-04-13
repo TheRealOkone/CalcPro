@@ -130,6 +130,18 @@ public class Calculator {
                  return goCalc(subList, "+", subList2);
 
             }
+            if(strList.contains("^")){
+                List<String> subList = new ArrayList<>();
+                for(int i = 0; i < strList.indexOf("^"); i++){
+                    subList.add(strList.get(i));
+                }
+                List<String> subList2 = new ArrayList<>();
+                for(int i = strList.indexOf("^") + 1; i < strList.size(); i++){
+                    subList2.add(strList.get(i));
+                }
+                return goCalc(subList, "^", subList2);
+
+            }
             if(strList.contains("-")){
                 List<String> subList = new ArrayList<>();
                 for(int i = 0; i < strList.indexOf("-"); i++){
@@ -195,6 +207,9 @@ public class Calculator {
 
             case "/":
                 return evaluate((ArrayList<String>) subList) / evaluate((ArrayList<String>) subList2);
+
+            case "^":
+                return Math.pow(evaluate((ArrayList<String>) subList),evaluate((ArrayList<String>) subList2));
         }
         return 0.0;
     }
