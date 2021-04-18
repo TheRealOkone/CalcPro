@@ -25,14 +25,7 @@ public class Service {
      * @param req
      * @return Результат
      */
-    @CrossOrigin
-    @RequestMapping(value = "/home", method = RequestMethod.POST)
-    @ResponseBody
-    public String go(@RequestParam String req) {
-        System.out.println(req);
-        System.out.println(calc.calc(req));
-        return Double.toString(calc.calc(req));
-    }
+
     @CrossOrigin
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     @ResponseBody

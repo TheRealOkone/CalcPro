@@ -90,7 +90,7 @@ function changeText(value) {
 function getRequest() {
 	let url = new URL('http://localhost:8080/home');
 	url.searchParams.set('req', document.getElementById('count').value);
-	url.searchParams.set('req1', 0);
+	url.searchParams.set('fmod', 0);
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, [true]);
 	xhr.send();
