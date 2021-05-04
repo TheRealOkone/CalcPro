@@ -15,6 +15,7 @@ public class Service {
      *
      * @return Страница
      */
+    @CrossOrigin
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String getTestPage() {
         return "index.html";
