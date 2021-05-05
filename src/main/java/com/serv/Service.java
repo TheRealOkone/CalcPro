@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Контроллер
  */
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @Controller
 public class Service {
 
@@ -16,7 +16,7 @@ public class Service {
      *
      * @return Страница
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String getTestPage() {
         return "index.html";
@@ -28,7 +28,6 @@ public class Service {
      * @return Результат
      */
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
     public String go(@RequestParam(value = "req", required = false, defaultValue = "1 + 1") String req, @RequestParam(value = "fmod", required = false, defaultValue = "0") int fmod) {
