@@ -31,7 +31,7 @@ public class Service {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
-    public String go(@RequestParam String req, @RequestParam int fmod) {
+    public String go(@RequestParam(value = "req", required = false, defaultValue = "1 + 1") String req, @RequestParam(value = "fmod", required = false, defaultValue = "0") int fmod) {
         System.out.println(fmod);
         System.out.println(req);
         System.out.println(calc.calc(req));
