@@ -11,7 +11,9 @@ import {Request} from './request';
 
 export class CalcComponent implements OnInit {
   // tslint:disable-next-line:variable-name
-  public _value = 'Введите ваш пример';
+  public _value;
+  // tslint:disable-next-line:variable-name
+  public visible_value = 'Введите ваш пример';
   // @ts-ignore
   req: Request = new Request(); // данные вводимого пользователя
   done = false;
@@ -20,24 +22,34 @@ export class CalcComponent implements OnInit {
     this.req.numbers = this._value;
     this.httpService.postData(this.req)
       .subscribe((data: any) => {
-        this._value = data; this.done = true;
+        this._value = data; this.visible_value = this._value; this.done = true;
     });
   }
   ngOnInit(): void {
   }
   onClk(param: string): void{
-    if (this._value === 'Введите ваш пример') {
+    if (this.visible_value === 'Введите ваш пример') {
       this._value = param;
-    } else if ((param === 'DEL') && (this._value !== '')) {
+      this.visible_value = param;
+    } else if ((param === 'DEL') && (this.visible_value !== '')) {
       this._value = this._value.slice(0, -1);
+      this.visible_value = this.visible_value.slice(0, -1);
     } else if (param === 'CLR') {
       this._value = 'Введите ваш пример';
+      this.visible_value = 'Введите ваш пример';
     } else if (param !== 'DEL') {
-      if ((param === '-') || (param === '+') || (param === '*') || (param === '/')) {
-        this._value += ' '; }
-      this._value += param;
-      if ((param === '-') || (param === '+') || (param === '*') || (param === '/')) {
+      if ((param === '-') || (param === '%2B') || (param === '*') || (param === '/')) {
         this._value += ' ';
+        this.visible_value += ' ';}
+      if (param === '%2B') {
+        this.visible_value += '+';
+      }
+      else {
+      this.visible_value += param; }
+      this._value += param;
+      if ((param === '-') || (param === '%2B') || (param === '*') || (param === '/')) {
+        this._value += ' ';
+        this.visible_value += ' ';
       }
     }
   }
