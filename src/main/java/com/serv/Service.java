@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
  * Контроллер
  */
 @CrossOrigin
-@Controller
+@RestController
 public class Service {
 
     Calculator calc = new Calculator();
