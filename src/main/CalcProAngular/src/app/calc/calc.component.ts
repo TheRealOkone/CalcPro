@@ -8,20 +8,20 @@ import {Request} from './request';
   styleUrls: ['./calc.component.css'],
   providers: [HttpService]
 })
+
 export class CalcComponent implements OnInit {
-  // @ts-ignore
-  req: Request = new Request(); // данные вводимого пользователя
   // tslint:disable-next-line:variable-name
   public _value = 'Введите ваш пример';
+  // @ts-ignore
+  req: Request = new Request(); // данные вводимого пользователя
   done = false;
   constructor(private httpService: HttpService){}
   onClk2(): void{
     this.req.numbers = this._value;
     this.httpService.postData(this.req)
-      .subscribe(
-        (data: Request) => {this._value = data.numbers; this.done = true; },
-        error => console.log(error)
-      );
+      .subscribe((data: any) => {
+        this._value = data; this.done = true;
+    });
   }
   ngOnInit(): void {
   }

@@ -11,6 +11,6 @@ export class HttpService{
   postData(request: Request){
 
     const body = {req: request.numbers, fmod: 0};
-    return this.http.post('http://localhost:8080/', body);
+    return this.http.get('http://localhost:8080/?req=' + request.numbers + '&fmod=0');
   }
 }
