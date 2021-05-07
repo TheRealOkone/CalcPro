@@ -1,33 +1,70 @@
 <body>
-<div class="button" (click)="onClk('(')">(</div>
-<div class="button" (click)="onClk(')')">)</div>
-<div class="button" (click)="onClk('CLR')">CLR</div>
-<div class="button" (click)="onClk(',')">,</div>
+<h1>Calculator</h1>
 <br>
-<div class="button" (click)="onClk('-')">-</div>
-<div class="button" (click)="onClk('%2B')">+</div>
-<div class="button" (click)="onClk('DEL')">DEL</div>
-<div class="button" (click)="onClk('.')">.</div>
+<div class="container text-center">
+  <br>
+  <br>
+  <input class="width-dynamic proba dva" id="count" type="text" value={{visible_value}} autofocus/>
+  <br>
+  <div (click)="onClk('(')" class="button">(</div>
+  <div (click)="onClk(')')" class="button">)</div>
+  <div (click)="onClk('CLR')" class="button">CLR</div>
 <br>
-<div class="button" (click)="onClk('*')">*</div>
-<div class="button" (click)="onClk('/')">/</div>
-<div class="button" (click)="onClk('sqrt(')">&#8730;x</div>
+  <div (click)="onClk('-')" class="button">-</div>
+  <div (click)="onClk('%2B')" class="button">+</div>
+  <div (click)="onClk('DEL')" class="button">DEL</div>
 <br>
-<div class="button" (click)="onClk('abs(')">|x|</div>
-<div class="button" (click)="onClk('pow(')">x^y</div>
-<div class="button" (click)="onClk2()">=</div>
+
+  <div (click)="onClk('*')" class="button">*</div>
+  <div (click)="onClk('/')" class="button">/</div>
+  <div (click)="onClk('sqrt(')" class="button">&#8730;x</div>
 <br>
-<div class="button" (click)="onClk('7')">7</div>
-<div class="button" (click)="onClk('8')">8</div>
-<div class="button" (click)="onClk('9')">9</div>
+  <div (click)="onClk('abs(')" class="button">|x|</div>
+  <div (click)="onClk('pow(')" class="button">x^y</div>
+  <div (click)="onClk2()" class="button">=</div>
 <br>
-<div class="button" (click)="onClk('4')">4</div>
-<div class="button" (click)="onClk('5')">5</div>
-<div class="button" (click)="onClk('6')">6</div>
+  <div (click)="onClk('7')" class="button">7</div>
+  <div (click)="onClk('8')" class="button">8</div>
+  <div (click)="onClk('9')" class="button">9</div>
 <br>
-<div class="button" (click)="onClk('1')">1</div>
-<div class="button" (click)="onClk('2')">2</div>
-<div class="button" (click)="onClk('3')">3</div>
+  <div (click)="onClk('4')" class="button">4</div>
+  <div (click)="onClk('5')" class="button">5</div>
+  <div (click)="onClk('6')" class="button">6</div>
 <br>
-<div class="button" (click)="onClk('0')">0</div>
-Total <input type="text" id="count" value={{visible_value}}/>
+  <div (click)="onClk('1')" class="button">1</div>
+  <div (click)="onClk('2')" class="button">2</div>
+  <div (click)="onClk('3')" class="button">3</div>
+<br>
+  <div (click)="onClk('0')" class="button">0</div>
+  <div (click)="onClk(',')" class="button">,</div>
+  <div (click)="onClk('.')" class="button">.</div>
+
+</div>
+</body>
+<script>
+  $.fn.textWidth = function(text, font) {
+
+  if (!$.fn.textWidth.fakeEl) $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
+
+  $.fn.textWidth.fakeEl.text(text || this.val() || this.text() || this.attr('placeholder')).css('font', font || this.css('font'));
+
+  return $.fn.textWidth.fakeEl.width();
+};
+
+$('.width-dynamic').on('input', function() {
+  var inputWidth = $(this).textWidth();
+  $(this).css({
+    width: inputWidth
+  })
+}).trigger('input');
+
+
+function inputWidth(elem, minW, maxW) {
+  elem = $(this);
+  console.log(elem)
+}
+
+var targetElem = $('.width-dynamic');
+
+inputWidth(targetElem);
+</script>

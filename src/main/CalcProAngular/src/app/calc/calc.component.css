@@ -10,10 +10,27 @@
   font-size: 16px;
   cursor: pointer;
   transition-duration: 0.4s;
-  width: 30px;
-  height: 20px;
+
+  min-width: 70px;
+
+
+  flex:1;
 }
 .button:hover {
   background-color: 	#90EE90;
   color: 	#006400;
+}
+input {
+  flex:2;
+  font-size: 18px;
+  min-width: 200px;
+  max-width: 500px;
+}
+.container {
+  margin: auto;
+  align-self: center;
+
+  max-width: 250px;
+  display: flex;
+  flex-wrap: wrap;
 }

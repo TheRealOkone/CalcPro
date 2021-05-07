@@ -10,6 +10,7 @@ import {Request} from './request';
 })
 
 export class CalcComponent implements OnInit {
+  private isMobileResolution: boolean;
   // tslint:disable-next-line:variable-name
   public _value;
   // tslint:disable-next-line:variable-name
@@ -17,7 +18,11 @@ export class CalcComponent implements OnInit {
   // @ts-ignore
   req: Request = new Request(); // данные вводимого пользователя
   done = false;
-  constructor(private httpService: HttpService){}
+  constructor(private httpService: HttpService){if (window.innerWidth < 768) {
+    this.isMobileResolution = true;
+  } else {
+    this.isMobileResolution = false;
+  }}
   onClk2(): void{
     this.req.numbers = this._value;
     this.httpService.postData(this.req)
@@ -65,4 +70,8 @@ export class CalcComponent implements OnInit {
     // tslint:disable-next-line:only-arrow-functions
     this._value =  + ' ';
   }*/
+  public getIsMobileResolution(): boolean {
+    return this.isMobileResolution;
+  }
+
 }
