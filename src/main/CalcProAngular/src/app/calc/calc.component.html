@@ -1,0 +1,33 @@
+<body>
+<div class="button" (click)="onClk('(')">(</div>
+<div class="button" (click)="onClk(')')">)</div>
+<div class="button" (click)="onClk('CLR')">CLR</div>
+<div class="button" (click)="onClk(',')">,</div>
+<br>
+<div class="button" (click)="onClk('-')">-</div>
+<div class="button" (click)="onClk('%2B')">+</div>
+<div class="button" (click)="onClk('DEL')">DEL</div>
+<div class="button" (click)="onClk('.')">.</div>
+<br>
+<div class="button" (click)="onClk('*')">*</div>
+<div class="button" (click)="onClk('/')">/</div>
+<div class="button" (click)="onClk('sqrt(')">&#8730;x</div>
+<br>
+<div class="button" (click)="onClk('abs(')">|x|</div>
+<div class="button" (click)="onClk('pow(')">x^y</div>
+<div class="button" (click)="onClk2()">=</div>
+<br>
+<div class="button" (click)="onClk('7')">7</div>
+<div class="button" (click)="onClk('8')">8</div>
+<div class="button" (click)="onClk('9')">9</div>
+<br>
+<div class="button" (click)="onClk('4')">4</div>
+<div class="button" (click)="onClk('5')">5</div>
+<div class="button" (click)="onClk('6')">6</div>
+<br>
+<div class="button" (click)="onClk('1')">1</div>
+<div class="button" (click)="onClk('2')">2</div>
+<div class="button" (click)="onClk('3')">3</div>
+<br>
+<div class="button" (click)="onClk('0')">0</div>
+Total <input type="text" id="count" value={{visible_value}}/>

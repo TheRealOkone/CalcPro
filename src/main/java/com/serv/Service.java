@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Контроллер
  */
-@Controller
+@CrossOrigin
+@RestController
 public class Service {
 
     Calculator calc = new Calculator();
@@ -15,6 +16,7 @@ public class Service {
      *
      * @return Страница
      */
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String getTestPage() {
         return "index.html";
@@ -26,10 +28,9 @@ public class Service {
      * @return Результат
      */
 
-    @CrossOrigin
-    @RequestMapping(value = "/home", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
-    public String go(@RequestParam String req, @RequestParam int fmod) {
+    public String go(@RequestParam(value = "req", required = false, defaultValue = "1 + 1") String req, @RequestParam(value = "fmod", required = false, defaultValue = "0") int fmod) {
         System.out.println(fmod);
         System.out.println(req);
         System.out.println(calc.calc(req));
