@@ -2,35 +2,32 @@
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 15px;
   margin: 1px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size:calc(100% + 2vw);
   cursor: pointer;
   transition-duration: 0.4s;
+  min-width: 15%;
 
-  min-width: 70px;
-
-
-  flex:1;
 }
 .button:hover {
   background-color: 	#90EE90;
   color: 	#006400;
 }
 input {
-  flex:2;
   font-size: 18px;
-  min-width: 200px;
-  max-width: 500px;
-}
-.container {
-  margin: auto;
-  align-self: center;
 
-  max-width: 250px;
-  display: flex;
-  flex-wrap: wrap;
+  min-width: 45%;
+}
+.container > .div{
+  align-self: center;
+  max-width: 500px;
+  float: left;
+  width: 23.5%;
+  margin-right: 2%;
+}
+.container{
+  max-width: 100%;
 }

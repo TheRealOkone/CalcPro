@@ -1,7 +1,10 @@
 <body>
 <h1>Calculator</h1>
 <br>
-<div class="container text-center">
+<div style="width:100%;">
+  <div class="container text-center ">
+
+
   <br>
   <br>
   <input class="width-dynamic proba dva" id="count" type="text" value={{visible_value}} autofocus/>
@@ -20,7 +23,7 @@
   <div (click)="onClk('sqrt(')" class="button">&#8730;x</div>
 <br>
   <div (click)="onClk('abs(')" class="button">|x|</div>
-  <div (click)="onClk('pow(')" class="button">x^y</div>
+  <div (click)="onClk('^')" class="button">x^y</div>
   <div (click)="onClk2()" class="button">=</div>
 <br>
   <div (click)="onClk('7')" class="button">7</div>
@@ -38,33 +41,6 @@
   <div (click)="onClk('0')" class="button">0</div>
   <div (click)="onClk(',')" class="button">,</div>
   <div (click)="onClk('.')" class="button">.</div>
-
+  </div>
 </div>
 </body>
-<script>
-  $.fn.textWidth = function(text, font) {
-
-  if (!$.fn.textWidth.fakeEl) $.fn.textWidth.fakeEl = $('<span>').hide().appendTo(document.body);
-
-  $.fn.textWidth.fakeEl.text(text || this.val() || this.text() || this.attr('placeholder')).css('font', font || this.css('font'));
-
-  return $.fn.textWidth.fakeEl.width();
-};
-
-$('.width-dynamic').on('input', function() {
-  var inputWidth = $(this).textWidth();
-  $(this).css({
-    width: inputWidth
-  })
-}).trigger('input');
-
-
-function inputWidth(elem, minW, maxW) {
-  elem = $(this);
-  console.log(elem)
-}
-
-var targetElem = $('.width-dynamic');
-
-inputWidth(targetElem);
-</script>
