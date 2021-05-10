@@ -17,9 +17,9 @@
   color: 	#006400;
 }
 input {
-  font-size: 18px;
-
+  font-size: 32px;
   min-width: 45%;
+  border-radius: 4px;
 }
 .container > .div{
   align-self: center;

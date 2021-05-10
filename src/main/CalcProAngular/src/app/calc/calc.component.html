@@ -5,42 +5,46 @@
   <div class="container text-center ">
 
 
-  <br>
-  <br>
-  <input class="width-dynamic proba dva" id="count" type="text" value={{visible_value}} autofocus/>
-  <br>
-  <div (click)="onClk('(')" class="button">(</div>
-  <div (click)="onClk(')')" class="button">)</div>
-  <div (click)="onClk('CLR')" class="button">CLR</div>
-<br>
-  <div (click)="onClk('-')" class="button">-</div>
-  <div (click)="onClk('%2B')" class="button">+</div>
-  <div (click)="onClk('DEL')" class="button">DEL</div>
-<br>
+    <br>
+    <br>
+    <input autofocus placeholder="введите ваш пример..." id="count" type="text" value={{visible_value}}/>
+    <br>
+    <div (click)="onClk('(')" class="button">(</div>
+    <div (click)="onClk(')')" class="button">)</div>
+    <div (click)="onClk('CLR')" class="button">CLR</div>
+    <br>
+    <div (click)="onClk('-')" class="button">-</div>
+    <div (click)="onClk('%2B')" class="button">+</div>
+    <div (click)="onClk('DEL')" class="button">DEL</div>
+    <br>
 
-  <div (click)="onClk('*')" class="button">*</div>
-  <div (click)="onClk('/')" class="button">/</div>
-  <div (click)="onClk('sqrt(')" class="button">&#8730;x</div>
-<br>
-  <div (click)="onClk('abs(')" class="button">|x|</div>
-  <div (click)="onClk('^')" class="button">x^y</div>
-  <div (click)="onClk2()" class="button">=</div>
-<br>
-  <div (click)="onClk('7')" class="button">7</div>
-  <div (click)="onClk('8')" class="button">8</div>
-  <div (click)="onClk('9')" class="button">9</div>
-<br>
-  <div (click)="onClk('4')" class="button">4</div>
-  <div (click)="onClk('5')" class="button">5</div>
-  <div (click)="onClk('6')" class="button">6</div>
-<br>
-  <div (click)="onClk('1')" class="button">1</div>
-  <div (click)="onClk('2')" class="button">2</div>
-  <div (click)="onClk('3')" class="button">3</div>
-<br>
-  <div (click)="onClk('0')" class="button">0</div>
-  <div (click)="onClk(',')" class="button">,</div>
-  <div (click)="onClk('.')" class="button">.</div>
+    <div (click)="onClk('*')" class="button">*</div>
+    <div (click)="onClk('/')" class="button">/</div>
+    <div (click)="onClk('sqrt(')" class="button">&#8730;x</div>
+    <br>
+    <div (click)="onClk('abs(')" class="button">|x|</div>
+    <div (click)="onClk('^')" class="button">x^y</div>
+    <div (click)="onClk('x')" class="button">X</div>
+    <br>
+    <div (click)="onClk('′')" class="button">f′(x)</div>
+    <div (click)="onClk('∫')" class="button">{{integral_state}}</div>
+    <div (click)="onClk2()" class="button">=</div>
+    <br>
+    <div (click)="onClk('7')" class="button">7</div>
+    <div (click)="onClk('8')" class="button">8</div>
+    <div (click)="onClk('9')" class="button">9</div>
+    <br>
+    <div (click)="onClk('4')" class="button">4</div>
+    <div (click)="onClk('5')" class="button">5</div>
+    <div (click)="onClk('6')" class="button">6</div>
+    <br>
+    <div (click)="onClk('1')" class="button">1</div>
+    <div (click)="onClk('2')" class="button">2</div>
+    <div (click)="onClk('3')" class="button">3</div>
+    <br>
+    <div (click)="onClk('0')" class="button">0</div>
+    <div (click)="onClk(',')" class="button">,</div>
+    <div (click)="onClk('.')" class="button">.</div>
   </div>
 </div>
 </body>
