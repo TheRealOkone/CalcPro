@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CalcProAngular.iml" filepath="$PROJECT_DIR$/.idea/CalcProAngular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/calcproangular.iml" filepath="$PROJECT_DIR$/.idea/calcproangular.iml" />
     </modules>
   </component>
 </project>
