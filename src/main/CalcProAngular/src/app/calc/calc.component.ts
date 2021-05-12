@@ -12,9 +12,7 @@ import {Request} from './request';
 export class CalcComponent implements OnInit {
   private isMobileResolution: boolean;
   // tslint:disable-next-line:variable-name
-  public _value;
-  // tslint:disable-next-line:variable-name
-  public visible_value = '';
+  public _value = '';
   // tslint:disable-next-line:variable-name
   public integral_state = '∫(';
   // tslint:disable-next-line:variable-name
@@ -32,7 +30,7 @@ export class CalcComponent implements OnInit {
     this.req.fmod = this.fmod;
     this.httpService.postData(this.req)
       .subscribe((data: any) => {
-        this._value = data; this.visible_value = this._value; this.done = true;
+        this._value = data; this.done = true;
     });
   }
   ngOnInit(): void {
@@ -42,28 +40,18 @@ export class CalcComponent implements OnInit {
                         if (param === '∫(') { this.integral_state = ')dX'; }
     else {this.integral_state = '∫('; this._value += ')dX'; this.fmod = 2; this.onClk2(); }}
     if (param === '′') {this.fmod = 1; }
-    if (this.visible_value === '') {
+    if (this._value === '') {
       this._value = param;
-      this.visible_value = param;
-    } else if ((param === 'DEL') && (this.visible_value !== '')) {
+    } else if ((param === 'DEL') && (this._value !== '')) {
       this._value = this._value.slice(0, -1);
-      this.visible_value = this.visible_value.slice(0, -1);
     } else if (param === 'CLR') {
       this._value = '';
-      this.visible_value = '';
     } else if (param !== 'DEL') {
-      if ((param === '-') || (param === '%2B') || (param === '*') || (param === '/')) {
-        this._value += ' ';
-        this.visible_value += ' '; }
-      if (param === '%2B') {
-        this.visible_value += '+';
-      }
-      else {
-      this.visible_value += param; }
+      if ((param === '-') || (param === '+') || (param === '*') || (param === '/')) {
+        this._value += ' '; }
       this._value += param;
-      if ((param === '-') || (param === '%2B') || (param === '*') || (param === '/')) {
+      if ((param === '-') || (param === '+') || (param === '*') || (param === '/')) {
         this._value += ' ';
-        this.visible_value += ' ';
       }
     }
   }

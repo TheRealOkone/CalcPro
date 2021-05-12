@@ -1,20 +1,32 @@
 <body>
 <h1>Calculator</h1>
 <br>
+
 <div style="width:100%;">
   <div class="container text-center ">
 
 
+    <input autofocus placeholder="введите ваш пример..." id="count" type="text" value={{_value}} id="myInput"/>
     <br>
-    <br>
-    <input autofocus placeholder="введите ваш пример..." id="count" type="text" value={{visible_value}}/>
+    <div class="button" style="min-width: 45%;">
+      <div class="dropdown  text-center " >
+        тригонометрия
+        <div class="dropdown-content  text-center">
+          <div (click)="onClk('sin(')" class="button" style="font-size:calc(50% + 1vw);">sin</div>
+          <div (click)="onClk('cos(')" class="button" style="font-size:calc(50% + 1vw);">cos</div>
+          <div (click)="onClk('tan(')" class="button" style="font-size:calc(50% + 1vw);">tan</div>
+          <div (click)="onClk('ctg(')" class="button" style="font-size:calc(50% + 1vw);">ctg</div>
+          <div (click)="onClk('π')" class="button" style="font-size:calc(50% + 1vw);">π</div>
+        </div>
+      </div>
+    </div>
     <br>
     <div (click)="onClk('(')" class="button">(</div>
     <div (click)="onClk(')')" class="button">)</div>
     <div (click)="onClk('CLR')" class="button">CLR</div>
     <br>
     <div (click)="onClk('-')" class="button">-</div>
-    <div (click)="onClk('%2B')" class="button">+</div>
+    <div (click)="onClk('+')" class="button">+</div>
     <div (click)="onClk('DEL')" class="button">DEL</div>
     <br>
 

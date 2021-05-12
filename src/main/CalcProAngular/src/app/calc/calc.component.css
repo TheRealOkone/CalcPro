@@ -6,7 +6,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size:calc(100% + 2vw);
+  font-size:calc(60% + 2vw);
   cursor: pointer;
   transition-duration: 0.4s;
   min-width: 15%;
@@ -30,4 +30,18 @@ input {
 }
 .container{
   max-width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: block;
+  }
+
+.dropdown-content {
+  display: none;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
