@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  microservices-backend:
+    build: microservices-backend/
+    command: java -Dserver.port=8081 -jar target/microservices-backend-1.0.0.jar
+    environment:
+      PORT: 8081
+  microservices-gateway:
+    build: microservices-gateway
+    command: java -jar target/microservices-gateway-1.0.0.jar
+    environment:
+      API-PORT: 8081
+      SERVER-NAME: microservices-backend
+      PORT: 8080
+    depends_on: 
+      - microservices-backend
+    links: 
+      - microservices-backend
+    ports:
+      - 8080:8080
+    
