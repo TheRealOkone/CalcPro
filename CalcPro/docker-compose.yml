@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  calcpro:
+    build: .
+    command: java -Dserver.port=8080 -jar calcpro-1.0.0.jar
+    ports:
+      - 80:8080
+    environment:
+      PORT: 8080
