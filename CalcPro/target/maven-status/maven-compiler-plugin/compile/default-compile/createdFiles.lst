@@ -1,0 +1,5 @@
+com\serv\RunApp.class
+com\serv\WebConfig.class
+com\serv\Calculator.class
+com\serv\SimpleCORSFilter.class
+com\serv\Service.class
