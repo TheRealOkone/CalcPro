@@ -30,7 +30,7 @@ public class Service {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
-    public String go(@RequestParam(value = "req", required = false, defaultValue = "1 + 1") String req, @RequestParam(value = "fmod", required = false, defaultValue = "0") int fmod) {
+    public String go(@RequestParam(value = "req", required = false, defaultValue = "1 + 1") String req, @RequestParam(value = "fmod", required = false, defaultValue = "0") int fmod, @RequestParam(value = "lowd", required = false, defaultValue = "0") double lowd, @RequestParam(value = "highd", required = false, defaultValue = "0") double highd) {
         System.out.println(fmod);
         System.out.println(req);
         System.out.println(calc.calc(req));
