@@ -412,5 +412,28 @@ public class Calculator {
         double res = evaluate(alist);
         return res;
     }
+    public double lowintegr(ArrayList<String> alist, double l, double h){
+        double diff = h - l;
+        int posx = -1;
+        if(alist.contains("x")){
+            posx = alist.indexOf("x");
+        }
+        double smlres = 0;
+        ArrayList<String> modlist;
+        for(int i =0; i<1000;i++){
+            modlist = alist;
+            modlist.set(posx,Double.toString(l + (diff/1000*i)));
+            smlres += evaluate(modlist) * diff/1000;
+        }
+
+        return smlres;
+    }
+
+    public double integrate(String req, double l, double h){
+        ArrayList<String> alist = new ArrayList<>(Arrays.asList(req.trim().split(" ")));
+        alist = fixlist(alist);
+        double res = lowintegr(alist,l,h);
+        return res;
+    }
 
 }

@@ -34,7 +34,12 @@ public class Service {
         System.out.println(fmod);
         System.out.println(req);
         System.out.println(calc.calc(req));
-        return Double.toString(calc.calc(req));
+        if (fmod == 0) {
+            return Double.toString(calc.calc(req));
+        }
+        if (fmod == 2) {
+            return Double.toString(calc.integrate(req,lowd,highd));
+        }
     }
 
 }
