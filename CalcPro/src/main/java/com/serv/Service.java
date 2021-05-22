@@ -33,13 +33,14 @@ public class Service {
     public String go(@RequestParam(value = "req", required = false, defaultValue = "1 + 1") String req, @RequestParam(value = "fmod", required = false, defaultValue = "0") int fmod, @RequestParam(value = "lowd", required = false, defaultValue = "0") double lowd, @RequestParam(value = "highd", required = false, defaultValue = "0") double highd) {
         System.out.println(fmod);
         System.out.println(req);
-        System.out.println(calc.calc(req));
         if (fmod == 0) {
             return Double.toString(calc.calc(req));
         }
         if (fmod == 2) {
-            return Double.toString(calc.integrate(req,lowd,highd));
+            System.out.println(req.substring(2,req.length() - 3));
+            return Double.toString(calc.integrate(req.substring(2,req.length() - 3),lowd,highd));
         }
+        return null;
     }
 
 }
