@@ -84,6 +84,130 @@ public class Calculator {
                 }
             }
 
+            for(int i = 0; i < strList.size(); i++){
+                if(strList.get(i).equals("sin(")){
+                    int b;
+                    boolean succ = true;
+                    int testo = 0;
+                    ArrayList<String> str = new ArrayList<>();
+                    for(int j = i + 1; succ; j++){
+                        str.add(strList.get(j));
+                        b = j+1;
+                        if(strList.get(j + 1).equals("(")){
+                            testo++;
+                        }
+                        if(strList.get(j + 1).equals(")")){
+                            if(testo == 0) {
+                                succ = false;
+                            }
+                            else{
+                                testo--;
+                            }
+                        }
+
+                    }
+                    double c = sin(evaluate(str));
+                    strList.set(i, Double.toString(c));
+                    while(!strList.get(i + 1).equals(")")){
+                        strList.remove(i + 1 );
+                    }
+                    strList.remove(i + 1 );
+                }
+            }
+
+            for(int i = 0; i < strList.size(); i++){
+                if(strList.get(i).equals("cos(")){
+                    int b;
+                    boolean succ = true;
+                    int testo = 0;
+                    ArrayList<String> str = new ArrayList<>();
+                    for(int j = i + 1; succ; j++){
+                        str.add(strList.get(j));
+                        b = j+1;
+                        if(strList.get(j + 1).equals("(")){
+                            testo++;
+                        }
+                        if(strList.get(j + 1).equals(")")){
+                            if(testo == 0) {
+                                succ = false;
+                            }
+                            else{
+                                testo--;
+                            }
+                        }
+
+                    }
+                    double c = cos(evaluate(str));
+                    strList.set(i, Double.toString(c));
+                    while(!strList.get(i + 1).equals(")")){
+                        strList.remove(i + 1 );
+                    }
+                    strList.remove(i + 1 );
+                }
+            }
+
+            for(int i = 0; i < strList.size(); i++){
+                if(strList.get(i).equals("tan(")){
+                    int b;
+                    boolean succ = true;
+                    int testo = 0;
+                    ArrayList<String> str = new ArrayList<>();
+                    for(int j = i + 1; succ; j++){
+                        str.add(strList.get(j));
+                        b = j+1;
+                        if(strList.get(j + 1).equals("(")){
+                            testo++;
+                        }
+                        if(strList.get(j + 1).equals(")")){
+                            if(testo == 0) {
+                                succ = false;
+                            }
+                            else{
+                                testo--;
+                            }
+                        }
+
+                    }
+                    double c = tan(evaluate(str));
+                    strList.set(i, Double.toString(c));
+                    while(!strList.get(i + 1).equals(")")){
+                        strList.remove(i + 1 );
+                    }
+                    strList.remove(i + 1 );
+                }
+            }
+
+            for(int i = 0; i < strList.size(); i++){
+                if(strList.get(i).equals("ctg(")){
+                    int b;
+                    boolean succ = true;
+                    int testo = 0;
+                    ArrayList<String> str = new ArrayList<>();
+                    for(int j = i + 1; succ; j++){
+                        str.add(strList.get(j));
+                        b = j+1;
+                        if(strList.get(j + 1).equals("(")){
+                            testo++;
+                        }
+                        if(strList.get(j + 1).equals(")")){
+                            if(testo == 0) {
+                                succ = false;
+                            }
+                            else{
+                                testo--;
+                            }
+                        }
+
+                    }
+                    double c = 1/(tan(evaluate(str)));
+                    strList.set(i, Double.toString(c));
+                    while(!strList.get(i + 1).equals(")")){
+                        strList.remove(i + 1 );
+                    }
+                    strList.remove(i + 1 );
+                }
+            }
+
 
             for(int i = 0; i < strList.size(); i++){
                 if(strList.get(i).equals("(")){
@@ -236,6 +360,22 @@ public class Calculator {
         if (str.contains("sqrt (")) {
             str = str.replace("sqrt (","sqrt(");
         }
+        if (str.contains("sin (")) {
+            str = str.replace("sin (","sin(");
+        }
+        if (str.contains("cos (")) {
+            str = str.replace("cos (","cos(");
+        }
+        if (str.contains("tan (")) {
+            str = str.replace("tan (","tan(");
+        }
+        if (str.contains("ctg (")) {
+            str = str.replace("ctg (","ctg(");
+        }
+        if (str.contains("π")) {
+            str = str.replace("π",Double.toString(Math.PI));
+        }
+
         ArrayList<String> a = new ArrayList<>(Arrays.asList(str.trim().split(" ")));
         return a;
     }
