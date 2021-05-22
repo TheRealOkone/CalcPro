@@ -32,6 +32,7 @@ export class CalcComponent implements OnInit {
       .subscribe((data: any) => {
         this._value = data; this.done = true;
     });
+    this.fmod = 0;
   }
   ngOnInit(): void {
   }
