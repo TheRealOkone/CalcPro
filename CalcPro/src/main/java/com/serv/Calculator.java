@@ -254,13 +254,13 @@ public class Calculator {
                  return goCalc(subList, "+", subList2);
 
             }
-            if(strList.contains("^")){
+            if(strList.contains("~")){
                 List<String> subList = new ArrayList<>();
-                for(int i = 0; i < strList.indexOf("^"); i++){
+                for(int i = 0; i < strList.indexOf("~"); i++){
                     subList.add(strList.get(i));
                 }
                 List<String> subList2 = new ArrayList<>();
-                for(int i = strList.indexOf("^") + 1; i < strList.size(); i++){
+                for(int i = strList.indexOf("~") + 1; i < strList.size(); i++){
                     subList2.add(strList.get(i));
                 }
                 return goCalc(subList, "^", subList2);
