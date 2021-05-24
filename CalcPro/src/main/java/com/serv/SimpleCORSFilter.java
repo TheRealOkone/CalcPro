@@ -10,9 +10,23 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * Фильтр для каждого запроса
+ */
 @Component
 public class SimpleCORSFilter implements Filter {
 
+    /**
+     *
+     * Установка фильтра
+     *
+     * @param req
+     * @param res
+     * @param chain
+     * @throws IOException
+     * @throws ServletException
+     */
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         System.out.println("bruhfilter");
         HttpServletResponse response = (HttpServletResponse) res;
@@ -23,8 +37,16 @@ public class SimpleCORSFilter implements Filter {
         chain.doFilter(req, res);
     }
 
+    /**
+     * Инициализация
+     *
+     * @param filterConfig
+     */
     public void init(FilterConfig filterConfig) {}
 
+    /**
+     * Деструктор фильтра
+     */
     public void destroy() {}
 
 }

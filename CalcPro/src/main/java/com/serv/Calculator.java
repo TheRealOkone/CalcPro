@@ -9,6 +9,14 @@ import static java.lang.Math.*;
  */
 public class Calculator {
 
+
+    /**
+     *
+     * Функция вычисления.
+     *
+     * @param strList Выражение
+     * @return результат
+     */
     public static Double evaluate(ArrayList <String> strList) {
 
         if(strList.size() == 1){
@@ -379,6 +387,15 @@ public class Calculator {
         ArrayList<String> a = new ArrayList<>(Arrays.asList(str.trim().split(" ")));
         return a;
     }
+
+    /**
+     *
+     * Замена символов на верные
+     *
+     * @param str
+     * @param c
+     * @return
+     */
     public String mod(String str, char c){
 
         for(int i = 0; i < str.length(); i++){
@@ -389,6 +406,14 @@ public class Calculator {
         }
         return str;
     }
+
+    /**
+     *
+     * Форматирование списка
+     *
+     * @param a
+     * @return
+     */
     public ArrayList<String> fixlist(ArrayList<String> a){
         for(int i = 0; i < a.size(); i++){
             String str = a.get(i);
@@ -412,6 +437,15 @@ public class Calculator {
         double res = evaluate(alist);
         return res;
     }
+
+    /**
+     * Функция поддержки интегрирования
+     *
+     * @param alist
+     * @param l
+     * @param h
+     * @return
+     */
     public double lowintegr(ArrayList<String> alist, double l, double h){
         double diff = h - l;
         int posx = -1;
@@ -429,6 +463,15 @@ public class Calculator {
         return smlres;
     }
 
+
+    /**
+     *
+     * Функция интегрировния
+     *
+     * @param req
+     * @param l
+     * @param h
+     * @return результат     */
     public double integrate(String req, double l, double h){
         ArrayList<String> alist = new ArrayList<>(Arrays.asList(req.trim().split(" ")));
         alist = fixlist(alist);
