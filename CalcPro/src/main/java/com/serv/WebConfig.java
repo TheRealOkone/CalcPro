@@ -19,7 +19,6 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        System.out.println("bruhfilter1111");
         registry.addMapping("/**").allowedMethods("GET", "POST","OPTIONS").allowedOrigins("*").allowedHeaders("*").exposedHeaders("*");
     }
 }
