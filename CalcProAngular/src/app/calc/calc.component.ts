@@ -31,15 +31,16 @@ export class CalcComponent implements OnInit {
     this.httpService.postData(this.req)
       .subscribe((data: any) => {
         this._value = data; this.done = true;
-    });
-    this.fmod = 0;
+      });
   }
   ngOnInit(): void {
   }
   onClk(param: string): void{
     if (param === '∫') {param = this.integral_state;
-                        if (param === '∫(') { this.integral_state = ')dX'; }
-    else {this.integral_state = '∫('; this._value += ')dX'; this.fmod = 2; this.onClk2(); }}
+      if (param === '∫(') { this.integral_state = ')dX lowd = ('; }
+      else if (param === ')dX lowd = ('){this.integral_state = '), highd = ('; }
+      else if (param === '), highd = ('){this.integral_state = ')'; }
+      else if (param === ')'){this.integral_state = '∫('; this.fmod = 2; this.onClk2(); }}
     if (param === '′') {this.fmod = 1; }
     if (this._value === '') {
       this._value = param;

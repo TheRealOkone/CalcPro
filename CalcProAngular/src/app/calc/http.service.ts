@@ -10,7 +10,7 @@ export class HttpService{
   // tslint:disable-next-line:typedef
   postData(request: Request){
     const chars = [...request.numbers];
-    chars.forEach((c, i) => {if (chars[i] === '+') {chars[i] = '%2B'; }});
+    chars.forEach((c, i) => {if (chars[i] === '+') {chars[i] = '%2B'; } if (chars[i] === '^') {chars[i] = '~'; }});
     request.numbers = chars.join('');
     return this.http.get('http://localhost:8080/?req=' + request.numbers + '&fmod=' + request.fmod);
   }
