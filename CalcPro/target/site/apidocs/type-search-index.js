@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.serv","l":"Calculator"},{"p":"com.serv","l":"RunApp"},{"p":"com.serv","l":"Service"},{"p":"com.serv","l":"SimpleCORSFilter"},{"p":"com.serv","l":"WebConfig"}];updateSearchResults();
